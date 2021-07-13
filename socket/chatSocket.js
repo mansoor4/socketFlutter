@@ -1,6 +1,6 @@
 const chatSocket = (socket, io) => {
-  socket.on("connectMessage", (payload) => {
-    console.log(payload);
+  socket.on("message", (payload) => {
+    socket.emit("reply", { message: "Bhag bhenke ke ghode" });
   });
 };
 
