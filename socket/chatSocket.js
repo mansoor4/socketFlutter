@@ -1,8 +1,16 @@
-const fs=require("fs");
+const fs=require("fs"),
+path=require("path");
 
 const chatSocket = (socket, io) => {
   socket.on("message", (payload) => {
-    console.log(paylaod)
+    const {data,filename}=payload
+    fs.writeFile(path.join(__dirname,"uploads",filename),payload,(err)=>{
+     if(err){
+       console.log(err)
+     }
+
+     console.log("Done")
+    })
   });
 };
 
